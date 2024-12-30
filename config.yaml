@@ -1,0 +1,93 @@
+api:
+  base_url: "http://localhost:5002/api"
+  broker_id: "4"
+
+email:
+  send_address: "rpa-dev@lifecareinternational.com"
+  read_address: rpa-dev@lifecareinternational.com
+  tenant_id: "08ac4503-bab9-4ee3-b714-6c3af55ef9b2"
+  app_id: "663fc2a3-e388-40bf-9327-ca33a82a4966"
+  app_secret: "d1V8Q~ZpVENL~Ms9uDLa.3ryTofrGtP54kBa3aSW"
+  subject: "Medical Insurance Documents"
+ 
+paths:
+  attachments_save_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/attachments"
+  screenshots_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/screenshots"
+  Electoneek_process_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/BOT-Processing"
+  referral_file_store_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/referral_file_store"
+  mail_zip_files : "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/BOT-Processing/zip_files"
+  database_path: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/database/lifecare.db"
+ 
+iq2health:
+  generated_census_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/iq/generated_census"
+  template_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/iq/templates"
+ 
+aura:
+  generated_census_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/aura/generated_census"
+  template_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/aura/templates"
+
+orient:
+  email: "twinkle.lobo@gargashinsurance.com"
+  password: "November@2024"
+  quotation_download_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/orient/quotation_sheets"
+ 
+dni:
+  email: "jyoti.sharma@gargashinsurance.com"
+  password: "November@12345"
+  quotation_download_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/dni/quotation_sheets"
+
+rak:
+  email: "Sheenu.vv@gargashinsurance.com"
+  password: "December@2024"
+  quotation_download_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/rak/quotation_sheets"
+ 
+takaful:
+  email: "varinder.kaur@gargashinsurance.com"
+  password: "*&1l*EgyEx"
+  quotation_download_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/takaful/quotation_sheets"
+ 
+NLG:
+  username: "Gargash"
+  password: "Gargash@123"
+  generated_census_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/nlg/generated_census"
+  templates_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/nlg/templates"
+  quotation_download_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/nlg/quotation_sheets"
+ 
+sukoon:
+  email: "sheenu.vv@gargashinsurance.com"
+  password: "oicsme@1"
+  generated_census_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/sukoon/generated_census"
+  templates_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/sukoon/templates"
+  quotation_download_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/sukoon/quotation_sheets"
+  temp_img_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/src/services/comparison_service/sukoon_temp_images"
+
+qatar:
+  email: "likith.b@gargashinsurance.com"
+  password: "November@123"
+  quotation_download_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/qatar/quotation_sheets"
+ 
+comparison:
+  generated_comparison_dir: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/comparison/generated_comparisons"
+  template: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/company_data/comparison/templates/Gargash_Comparsion_Template.xlsx"
+ 
+poppler:
+  path: "C:/Users/HP/Desktop/Gargash_medical/Insurance_Playwright/external_programs/poppler-24.08.0/Library/bin"
+
+captcha:
+  api_key: "12054431ec2fc8637b7ca76cd31c9401"
+ 
+modes:
+  headless: False
+  parallel: false
+ 
+sleep:
+  min: 0.2
+  med: 0.5
+  max: 3
+ 
+retry:
+  max_attempts: 3
+ 
+referrals:
+  active: false
+  max_minutes: 240

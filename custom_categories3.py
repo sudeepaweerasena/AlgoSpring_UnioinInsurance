@@ -50,14 +50,22 @@ class Custom_Categories3:
         await asyncio.sleep(3) 
 
         # IP & OP
-        await self.page.get_by_text("IP & OP").nth(2).click()
-        await asyncio.sleep(1) 
+        ip_op = self.get_value("Tick the IP & OP")
+        print(ip_op)
+        if ip_op == "Covered":
+            await asyncio.sleep(0.5)
+            await self.page.get_by_text("IP & OP").nth(2).click()
+        else:
+            print("IP & OP is not covered")
+        await asyncio.sleep(1)
+        # await self.page.get_by_text("IP & OP").nth(2).click()
+        # await asyncio.sleep(1) 
 
 #------------------------------------------------
   
 
         # Pre-existing Condition
-        pre_existing = self.get_value("Pre-existing")
+        pre_existing = self.get_value("Pre-existing & Chronic Conditions")
         print(pre_existing)
         await asyncio.sleep(1)
         await self.page.click("(//input[@type='text'])[36]")
@@ -74,14 +82,6 @@ class Custom_Categories3:
         await asyncio.sleep(1)
 
         # Consultation
-        # consultation = self.get_value("Consultation")
-        # print(consultation)
-        # await self.page.wait_for_load_state('networkidle')
-        # await asyncio.sleep(1)
-        # await self.page.click("(//input[@type='text'])[37]")
-        # await self.page.locator(f"#coinsurance_general_offer1text2").get_by_role("list").get_by_text(consultation, exact=True).click()
-        # await asyncio.sleep(3) 
-
         consultation = self.get_value("Consultation")
         print(consultation)
         consultation_type = type(consultation)
@@ -98,15 +98,6 @@ class Custom_Categories3:
         await asyncio.sleep(3) 
 
         # OP Coinsurance
-        # op_coInsurance = self.get_value("Op Co Insurance")
-        # print(op_coInsurance)
-        # op_coInsurance = int(float(op_coInsurance) * 100)
-        # op_coInsurance = f"{op_coInsurance}%"
-        # await asyncio.sleep(1)
-        # await self.page.click("(//input[@type='text'])[38]")
-        # await self.page.locator("#coinsurance_general_offer1text2").get_by_role("list").get_by_text(op_coInsurance, exact=True).click()
-        # await asyncio.sleep(3)
-
         op_coInsurance = self.get_value("Op Co Insurance")
         print(op_coInsurance)
         if op_coInsurance == "Nil":
@@ -122,17 +113,7 @@ class Custom_Categories3:
         await asyncio.sleep(3)
 
 
-        # # Maternity
-        # maternity = self.get_value("Maternity")
-        # print(maternity)  
-        # await asyncio.sleep(1)  
-        # maternity = int(float(maternity))
-        # maternity_formatted = f"{maternity:,}"
-        # # await asyncio.sleep(0.5)
-        # await self.page.click("(//input[@type='text'])[39]")
-        # await self.page.locator(f"#additional_general_offer0text2").get_by_role("list").get_by_text(maternity_formatted).click()
-        # # await asyncio.sleep(3)
-
+        # Maternity
         maternity = self.get_value("Maternity")
         print(maternity)
         await asyncio.sleep(1)
@@ -167,7 +148,7 @@ class Custom_Categories3:
         await asyncio.sleep(0.5) 
 
         # Alternative Treatment
-        alt_treatment = self.get_value("Alternative Medicine")
+        alt_treatment = self.get_value("Alternative treatment Sublimit")
         print(alt_treatment)
         await asyncio.sleep(0.5)
         alt_treatment = int(float(alt_treatment))
@@ -178,7 +159,7 @@ class Custom_Categories3:
         await asyncio.sleep(0.5)
 
         # Psychiatric Treatment
-        psy_treatment = self.get_value("Psychiatric Treatment")
+        psy_treatment = self.get_value("Psychiatry")
         print(psy_treatment)
         await asyncio.sleep(0.5)
         psy_treatment = int(float(psy_treatment))
@@ -201,7 +182,7 @@ class Custom_Categories3:
         await self.page.locator("#additional_general_offer0text2").get_by_role("list").get_by_text(repatriation_formatted).click()
 
         # Dental
-        dental = self.get_value("Dental")
+        dental = self.get_value("Dental CO")
         dental = int(float(dental) * 100) 
         dental_formatted = f"{dental}%" 
         print(dental_formatted)
@@ -210,7 +191,7 @@ class Custom_Categories3:
         await asyncio.sleep(5)
 
         # Dental Limit ---Sub Field---
-        dental_limit = self.get_value("Dental Limit")
+        dental_limit = self.get_value("Dental")
         print(dental_limit)
         await asyncio.sleep(0.5)
         dental_limit = int(float(dental_limit.replace(',', '')))
@@ -222,7 +203,7 @@ class Custom_Categories3:
         await self.page.locator("#additional_general_offer0text2").get_by_role("list").get_by_text(dental_limit_formatted).click()
 
         # Optical
-        optical = self.get_value("Optical")
+        optical = self.get_value("Optical CO")
         print(optical)
         optical = int(float(optical) * 100)
         optical = f"{optical}%"
@@ -232,7 +213,7 @@ class Custom_Categories3:
         await asyncio.sleep(3)
 
         # Optical Limit ---Sub Field---
-        optical_limit = self.get_value("Optical Limit")
+        optical_limit = self.get_value("Optical")
         print(optical_limit)
         await asyncio.sleep(0.5)
         optical_limit = int(float(optical_limit))

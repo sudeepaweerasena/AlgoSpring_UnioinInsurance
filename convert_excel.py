@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import datetime
 
 # File paths and sheet names
-OUTPUT_FILE_PATH = "D:\\AlgoSpring\\python\\Union_Insurance\\Standard Plans Template.xlsx"
+OUTPUT_FILE_PATH = "D:\\AlgoSpring\\python\\Union_Insurance\\Customized Plans Template.xlsx"
 OUTPUT_SHEET_NAME = "Sheet1"
 INPUT_FILE_PATH = "D:\\AlgoSpring\\python\\Union_Insurance\\FromFile.xlsx"
 INPUT_SHEET_NAME = "Sheet1"
@@ -21,10 +21,14 @@ def nlg_transfer_medical_data():
         print(f"Error: The sheet {INPUT_SHEET_NAME} does not exist in {INPUT_FILE_PATH}.")
         return
 
-    # Replace 'Principal' with 'Employee' in the 'Relation' column
-    input_df['Relation'] = input_df['Relation'].replace('Principal', 'Employee')
-    print("After Replacing 'Principal' with 'Employee':")
-    print(input_df.head())
+    # Relation mapping
+    relation_mapping = {
+        "Principal": "Employee",
+        "Spouce": "Dependent",
+        "Child": "Dependent"
+    }
+    input_df['Relation'] = input_df['Relation'].map(relation_mapping).fillna(input_df['Relation'])
+
 
     # Convert Gender to 'M' or 'F'
     input_df['Gender'] = input_df['Gender'].apply(lambda gender: 'M' if gender == 'Male' else ('F' if gender == 'Female' else gender))

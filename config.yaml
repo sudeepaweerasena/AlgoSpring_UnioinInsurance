@@ -91,3 +91,8 @@ retry:
 referrals:
   active: false
   max_minutes: 240
+
+
+file_paths:
+  census_data: "D:\\AlgoSpring\\python\\Union_Insurance\\census-data.xlsx"
+  attachments_dir: "D:\\AlgoSpring\\python\\Union_Insurance\\UnionInsurunce.xlsx"

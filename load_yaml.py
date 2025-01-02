@@ -82,3 +82,6 @@ MAX_RETRIES = config['retry']['max_attempts']
 
 MAX_REFERRAL_MINUTES = config['referrals']['max_minutes']
 IS_REFERRAL_ACTIVE = config['referrals']['active']
+
+CENSUS_DATA_PATH = config['file_paths']['census_data']
+ATTACHMENTS_DIR = config['file_paths']['attachments_dir']

@@ -16,8 +16,6 @@ class FormNew:
     def get_value(self, df, key):
         return df[df['KEY'] == key]['VALUE'].values[0]
 
-
-
     
     async def fill_company_information(self, num_categories, unique_mapped_categories):
 

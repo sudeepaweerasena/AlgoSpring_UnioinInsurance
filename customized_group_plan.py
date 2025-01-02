@@ -6,6 +6,16 @@ from custom_categories1 import Custom_Categories1
 from custom_categories2 import Custom_Categories2
 from custom_categories3 import Custom_Categories3
 from convert_excel import nlg_transfer_medical_data
+# import yaml
+
+# # Load the configuration file
+# def load_config():
+#     with open('config.yaml', 'r') as file:
+#         config = yaml.safe_load(file)
+#     return config
+
+
+# config = load_config()
 
 class Customized_Group_Plan:
     def __init__(self, page, df1, df2, df3, df4):
@@ -14,6 +24,7 @@ class Customized_Group_Plan:
         self.df2 = df2
         self.df3 = df3
         self.df4 = df4
+        # self.config = load_config()  # Load configuration
 
     def get_value(self, df, key):
         return df[df['KEY'] == key]['VALUE'].values[0]
@@ -57,6 +68,10 @@ class Customized_Group_Plan:
     
     async def fill_custom_group_plan_information(self, num_categories, unique_mapped_categories):
         nlg_transfer_medical_data()
+
+        # census_file_path = self.config['file_paths']['census_data']  # Correct key
+
+        # claim_pdf_path = self.config['file_paths']['documents']['claim_pdf'] 
         
         # Select "Customized Group Plan"
         await self.page.locator("//html/body/app-root/app-homepage/section/div/div/div[2]/div/div[5]/div[3]/div/a[1]").click()
@@ -106,6 +121,8 @@ class Customized_Group_Plan:
         await asyncio.sleep(0.5)  
 
         # Upload Census file
+        # await self.page.locator("#claim_up_field").set_input_files(census_file_path)
+        
         await self.page.locator("#claim_up_field").set_input_files("D:\\AlgoSpring\\python\\Union_Insurance\\census-data.xlsx")
         await asyncio.sleep(0.5)  
 
@@ -129,11 +146,15 @@ class Customized_Group_Plan:
             custom_categories3 = Custom_Categories3(self.page, self.df1, self.df3, self.df4)
             await custom_categories3.custom_categories3_information()
 
+        # Click on the "Next" button
+        # await self.page.locator('#submitform ').click()
+
 
         await self.page.get_by_role("button", name="Next roundarrowwhite").click()
 
         # Client/Broker Email Request 
         await self.page.locator("[id=\"claim_up_field\\[0\\]\"]").click()
+        # await self.page.locator("[id=\"claim_up_field\\[0\\]\"]").set_input_files(claim_pdf_path)
         await self.page.locator("[id=\"claim_up_field\\[0\\]\"]").set_input_files("C:\\Users\\sudeepa.w\\Downloads\\QA202412180106.pdf")   
 
         # List of members 
